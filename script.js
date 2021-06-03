@@ -10,7 +10,7 @@ yearInput.addEventListener("keypress", resultByEnter);
 
 function loadApi() {
   fetch(
-    "http://www.omdbapi.com/?apikey=167eb644&t=" +
+    "https://www.omdbapi.com/?apikey=167eb644&t=" +
       titleInput.value +
       "&y=" +
       yearInput.value
