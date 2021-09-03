@@ -1,7 +1,27 @@
-header {
+_header {
   background-image: url("https://www.decopoint.at/media/image/product/94792/md/filmstreifen-kunststoff-140x19cm-art_nr7344641.jpg");
   background-size: cover;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 400px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  overflow: hidden;
+}
+
+#result {
+  transform: translateY(100%);
+}
+
+#result.animate {
+  transform: translateY(0%);
+  transition-property: unset;
+  transition-duration: 9s;
+  transition-timing-function: unset;
 }

@@ -41,8 +41,12 @@ function showResult(data) {
     "Plot: " + data.Plot);
 }
 
+searchBtn.onclick = function () {
+  result.classList.add("animate");
+};
+
 function resultByEnter(e) {
   if (e.key === "Enter") {
-    loadApi();
+    loadApi(), result.classList.add("animate");
   }
 }
