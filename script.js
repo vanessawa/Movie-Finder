@@ -16,7 +16,8 @@ function loadApi() {
       yearInput.value
   )
     .then((response) => response.json())
-    .then((data) => showResult(data));
+    .then((data) => showResult(data))
+    .then(result.classList.add("animate"));
 }
 
 function showResult(data) {
@@ -41,12 +42,13 @@ function showResult(data) {
     "Plot: " + data.Plot);
 }
 
-searchBtn.onclick = function () {
-  result.classList.add("animate");
-};
+result.addEventListener("transitioned", () => {
+  result.classList.remove("animate");
+  console.log("transition done");
+});
 
 function resultByEnter(e) {
   if (e.key === "Enter") {
-    loadApi(), result.classList.add("animate");
+    loadApi();
   }
 }
