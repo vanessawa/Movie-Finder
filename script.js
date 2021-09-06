@@ -42,7 +42,7 @@ function showResult(data) {
     "Plot: " + data.Plot);
 }
 
-result.addEventListener("transitioned", () => {
+result.addEventListener("transitionend", () => {
   result.classList.remove("animate");
   console.log("transition done");
 });
