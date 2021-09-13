@@ -9,6 +9,7 @@ titleInput.addEventListener("keypress", resultByEnter);
 yearInput.addEventListener("keypress", resultByEnter);
 
 function loadApi() {
+  moveOrigin();
   fetch(
     "https://www.omdbapi.com/?apikey=167eb644&t=" +
       titleInput.value +
@@ -16,8 +17,7 @@ function loadApi() {
       yearInput.value
   )
     .then((response) => response.json())
-    .then((data) => showResult(data))
-    .then(result.classList.add("animate"));
+    .then((data) => showResult(data));
 }
 
 function showResult(data) {
@@ -40,12 +40,18 @@ function showResult(data) {
     "Awards: " + data.Awards);
   const resultPlot = (document.querySelector("#result-plot").innerHTML =
     "Plot: " + data.Plot);
+  moveUp();
 }
 
-result.addEventListener("transitionend", () => {
-  result.classList.remove("animate");
-  console.log("transition done");
-});
+function moveUp() {
+  result.style.transition = "all 9s";
+  result.style.transform = "translateY(0%)";
+}
+
+function moveOrigin() {
+  result.style.transition = "all 0s";
+  result.style.transform = "translateY(100%)";
+}
 
 function resultByEnter(e) {
   if (e.key === "Enter") {
